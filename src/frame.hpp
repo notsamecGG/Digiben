@@ -6,11 +6,7 @@ struct Frame
     Frame ()
      : charNum(0), buffer("") { }
 
-    void render()
-    {
-        std::cout << buffer;
-        std::cout.flush();
-    }
+    void render() { std::cout << buffer << std::flush; }
     void render(std::string& input)
     {
         buffer = input;

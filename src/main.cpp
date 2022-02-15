@@ -2,8 +2,7 @@
 #include <ctime>
 #include <thread>
 
-#include "common.hpp"
-#include "renderer.hpp"
+#include "frame.hpp"
 
 void get_time(char* timeBuff)
 {    
@@ -20,21 +19,16 @@ int main()
 {
     char timeBuff[24];
     std::string timeStr;
-    Renderer renderer;
     Frame frame;
 
     while(true)
     {
-        frame.clear();
-        
         get_time(timeBuff);
         timeStr = timeBuff;
 
+        frame.clear();
         frame.render(timeStr);
 
-        // renderer.render(timeStr);
-
-        // renderer.swap();
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
